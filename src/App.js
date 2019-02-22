@@ -4,11 +4,12 @@ import CharPicker from './components/CharPicker';
 import Character from './components/Character';
 
 const App = props => {
-  const [state, setState] = useState({
-    selectedCharacter: 1,
-    side: 'light',
-    destroyed: false
-  });
+ 
+  const [selectedCharacter, setSelectedCharacter] = useState(1);
+
+  const [chosenSide, setChosenSide] = useState('light');
+
+  const [destroyed, setDestroyed] = useState(false);
 
   const sideHandler = side => {
     setState({ ...state, side: side });
