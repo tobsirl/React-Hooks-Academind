@@ -2,11 +2,6 @@
   "name": "React-Hooks-Academind",
   "version": "1.0.0",
   "description": "https://academind.com/learn/react/react-hooks-introduction/",
-  "dependencies": {
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-scripts": "2.1.5"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -32,5 +27,21 @@
   "bugs": {
     "url": "https://github.com/tobsirl/React-Hooks-Academind/issues"
   },
-  "homepage": "https://github.com/tobsirl/React-Hooks-Academind#readme"
+  "homepage": "https://github.com/tobsirl/React-Hooks-Academind#readme",
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.2.0",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-scripts": "2.1.5"
+  }
 }
