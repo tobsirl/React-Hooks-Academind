@@ -42,6 +42,10 @@ const Character = props => {
 
   useEffect(() => {
     fetchData();
+    return () => {
+      // Cleanup function
+      console.log('Cleaning up...');
+    }
   }, [props.selectedChar]);
 
   let content = <p>Loading Character...</p>;
