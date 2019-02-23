@@ -4,7 +4,7 @@ import './CharPicker.css';
 
 const CharPicker = props => {
   // !Replaces state - not need for classes, setState
-  const [characters, setCharacters] = useState([]);
+  const [loadedChars, setLoadedChars] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,7 +22,7 @@ const CharPicker = props => {
       .then(charData => {
         const selectedCharacters = charData.results.slice(0, 5);
         setIsLoading(false);
-        setCharacters(
+        setLoadedChars(
           selectedCharacters.map((char, index) => ({
             name: char.name,
             id: index + 1
@@ -31,27 +31,28 @@ const CharPicker = props => {
       })
       .catch(err => {
         console.log(err);
+        setIsLoading(false);
       });
   }, []);
   // ! Second argument changes behaviour to componentDidMount
 
   let content = <p>Loading characters...</p>;
 
-  if (!isLoading && characters && characters.length > 0) {
+  if (!isLoading && loadedChars && loadedChars.length > 0) {
     content = (
       <select
         onChange={props.onCharSelect}
         value={props.selectedChar}
         className={props.side}
       >
-        {characters.map(char => (
+        {loadedChars.map(char => (
           <option key={char.id} value={char.id}>
             {char.name}
           </option>
         ))}
       </select>
     );
-  } else if (!isLoading && (!characters || characters.length === 0)) {
+  } else if (!isLoading && (!loadedChars || loadedChars.length === 0)) {
     content = <p>Could not fetch any data.</p>;
   }
   return content;
