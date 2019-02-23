@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Summary from './Summary';
 
-class Character extends Component {
-  state = { loadedCharacter: {}, isLoading: false };
+const Character = props => {
+  // ! useState
+  const [loadedCharacter, setLoadedCharacter] = useState({});
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate');
-    return (
-      nextProps.selectedChar !== this.props.selectedChar ||
-      nextState.loadedCharacter.id !== this.state.loadedCharacter.id ||
-      nextState.isLoading !== this.state.isLoading
-    );
-  }
+  const [isLoading, setIsLoading] = useEffect(false)
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('shouldComponentUpdate');
+  //   return (
+  //     nextProps.selectedChar !== this.props.selectedChar ||
+  //     nextState.loadedCharacter.id !== this.state.loadedCharacter.id ||
+  //     nextState.isLoading !== this.state.isLoading
+  //   );
+  // }
 
   componentDidUpdate(prevProps) {
     console.log('Component did update');
@@ -61,7 +64,6 @@ class Character extends Component {
     console.log('Too soon...');
   }
 
-  render() {
     let content = <p>Loading Character...</p>;
 
     if (!this.state.isLoading && this.state.loadedCharacter.id) {
@@ -79,7 +81,7 @@ class Character extends Component {
       content = <p>Failed to fetch character.</p>;
     }
     return content;
-  }
+  
 }
 
 export default Character;
