@@ -12,27 +12,7 @@ const CharPicker = props => {
   useEffect(() => {
     
     setIsLoading(true);
-    fetch('https://swapi.co/api/people')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch.');
-        }
-        return response.json();
-      })
-      .then(charData => {
-        const selectedCharacters = charData.results.slice(0, 5);
-        setIsLoading(false);
-        setLoadedChars(
-          selectedCharacters.map((char, index) => ({
-            name: char.name,
-            id: index + 1
-          }))
-        );
-      })
-      .catch(err => {
-        console.log(err);
-        setIsLoading(false);
-      });
+    
   }, []);
   // ! Second argument changes behaviour to componentDidMount
 
